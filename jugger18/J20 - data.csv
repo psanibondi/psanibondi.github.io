@@ -1,0 +1,21 @@
+ID,NOME,Velocità ,Ruolo,,Sum,Supermossa power,Supermossa number,Supermossa,Supermossa code
+1,Mecha-0,1,Enforcer,3.0,4,5,2,Meta ,Meta 
+2,Gonzo,1,Blocker,5.0,6,3,4,Riprendi una carta da quelle giocate,Recover
+3,PsycoRanger,4,Quick,1.0,5,4,3,Avversario scarta 1 carta dalla mano,Punch
+4,Geekisha,1,Chain,3,4,5,10,Meta ,Meta 
+5,Bronzhoooo!,2,Enforcer,3.0,5,4,3,Avversario scarta 1 carta dalla mano,Punch
+6,MnemonicSlug,2,Chain,3,5,4,9,Avversario scarta 1 carta dalla mano,Punch
+7,Hokushigh,1,Blocker,5.0,6,3,4,Riprendi una carta da quelle giocate,Recover
+8,Kensh,4,Quick,1.0,5,4,9,Avversario scarta 1 carta dalla mano,Punch
+9,Soryano,3,Chain,3,6,3,4,Riprendi una carta da quelle giocate,Recover
+10,Lilthi,5,Quick,1.0,6,3,4,Riprendi una carta da quelle giocate,Recover
+11,Grohoog,3,Enforcer,3,6,3,8,Riprendi una carta da quelle giocate,Recover
+12,HyperDoolby,2,Blocker,5.0,7,2,5,Blocco,Blocco
+13,OmniHighker,2,Blocker,5.0,7,2,5,Blocco,Blocco
+14,Felicity,3,Blocker,5.0,8,1,6,Blocco,Blocco
+15,Brenno,5,Quick,1.0,6,3,8,Riprendi una carta da quelle giocate,Recover
+16,Crho-Maghnon,3,Enforcer,3,6,3,8,Riprendi una carta da quelle giocate,Recover
+17,PF-19.83,4,Chain,3,7,2,7,Blocco,Blocco
+18,Protozombie,4,Enforcer,3,7,2,7,Blocco,Blocco
+19,Punkl,5,Chain,3,8,1,6,Blocco,Blocco
+20,Sgnappha,5,Quick,1.0,6,3,8,Riprendi una carta da quelle giocate,Recover
