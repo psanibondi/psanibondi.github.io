@@ -77,13 +77,13 @@ for ii = 1:length(ID)
                             [C,map,alpha]  = imread(title);
                             zoom = 0.7;
                             D = 14;
-                            cx = 7 + (pos-1)*25;
+                            cx = 7 + (pos-1)*21;
                             cy = 79 - (lev - 1)*18;
                             image('XData',[cx-D/2*zoom cx+D/2*zoom],'YData',[cy-D/2*zoom cy+D/2*zoom],'CData',C,'AlphaData',alpha);
 
-                            cx = 7 + (pos-1)*25;
+                            cx = 7 + (pos-1)*21;
                             cy = 70 - (lev - 1)*18
-                            text(cx+9,cy+10,num2str(Dresources(ii,res+(lev-1)*5)),'FontSize',150, 'HorizontalAlignment','center',...
+                            text(cx+9,cy+10,num2str(Dresources(ii,res+(lev-1)*5)),'FontSize',120, 'HorizontalAlignment','center',...
                              'VerticalAlignment','middle','Rotation',0,'Color','black','FontName','Brizel') 
                          
                             pos = pos +1;
