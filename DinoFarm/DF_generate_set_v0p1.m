@@ -167,9 +167,9 @@ for ii = 1:Ncards
                        'PrehistoricIcon_86_t.png';
                        'HuntingIcons_42_t.png'};
                    
-              c = [20 7;
+              c = [63-20 13;
                    50 88-30;
-                   43 88-7;
+                   20 88-13;
                    13   30];
               
               %scores
@@ -181,15 +181,16 @@ for ii = 1:Ncards
            
                                 title = icons{res};
                                 [C,map,alpha]  = imread(title);
-                                zoom = 0.4;
+                                zoom = 0.5;
                                 D = 14;
                                 if season == 1 
-                                    cx = c(season,1) + (pos-1)*12;
-                                    cy = c(season,2) + (line - 1)*7;
-                                    lx = -6;
+                                    cx = c(season,1) - (pos-1)*12;
+                                    cy = c(season,2) - (line - 1)*7;
+                                    lx = 6;
                                     ly = 0;
-                                    sx = 15;
+                                    sx = -15;
                                     sy = 0;
+                                    rot = 180;
                                 elseif season == 2
                                     cx = c(season,1) + (line - 1)*7;
                                     cy = c(season,2) - (pos - 1)*12;
@@ -197,13 +198,15 @@ for ii = 1:Ncards
                                     ly = 6;
                                     sx = 0;
                                     sy = -15;
+                                    rot = 90;
                                 elseif season == 3
-                                    cx = c(season,1) - (pos-1)*12;
-                                    cy = c(season,2) - (line - 1)*7;
-                                    lx = 6;
+                                    cx = c(season,1) + (pos-1)*12;
+                                    cy = c(season,2) + (line - 1)*7;
+                                    lx = -6;
                                     ly = 0;
-                                    sx = -15;
+                                    sx = +15;
                                     sy = 0;
+                                    rot = 0;
                                 else
                                     cx = c(season,1) - (line - 1)*7;
                                     cy = c(season,2) + (pos - 1)*12;
@@ -211,11 +214,12 @@ for ii = 1:Ncards
                                     ly = -6;
                                     sx = 0;
                                     sy = 15;
+                                    rot = -90;
                                 end
                                 image('XData',[cx-D/2*zoom cx+D/2*zoom],'YData',[cy-D/2*zoom cy+D/2*zoom],'CData',C,'AlphaData',alpha);
 
                                 text(cx+lx,cy+ly,num2str((Dscore((ii-1)*2+line,res+(season-1)*6))),'FontSize',70, 'HorizontalAlignment','center',...
-                                 'VerticalAlignment','middle','Rotation',(season-1)*90,'Color','black','FontName','Brizel') 
+                                 'VerticalAlignment','middle','Rotation',rot,'Color','black','FontName','Brizel') 
                                 
                                  pos = pos+1;
                                  
@@ -223,7 +227,7 @@ for ii = 1:Ncards
                             end
                             if res == 5 && ~isnan(Dscore((ii-1)*2+line,6+(season-1)*6))
                              text(cx+sx,cy+sy,strcat('>> ',num2str((Dscore((ii-1)*2+line,6+(season-1)*6))),' PV'),'FontSize',70, 'HorizontalAlignment','center',...
-                                 'VerticalAlignment','middle','Rotation',(season-1)*90,'Color','black','FontName','Brizel')
+                                 'VerticalAlignment','middle','Rotation',rot,'Color','black','FontName','Brizel')
                             end
                       end
                       %rectangle('Position',[0,88-se*18,63,1],'FaceColor',[0 0 0],'LineStyle','none','Curvature',[0 0])
