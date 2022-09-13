@@ -8,7 +8,8 @@ data = importfile3('DinoFarm-sheet3.csv');
 
 ID = cell2mat(data(:,1));
 Dnames = data(:,2);
-Dresources = cell2mat(data(:,3:17));
+Dresources = cell2mat(data(:,[3:7 9:13 15:19]));
+Daction = data(:,[8 14 20]);
 
 color = [90 40 127
          69  112 180
@@ -47,25 +48,35 @@ for ii = 1:length(ID)
              %NAME
              cx = 31;
              cy = 7;
-             text(cx,cy,Dnames{ii},'FontSize',80, 'HorizontalAlignment','center',...
+             text(cx,cy,Dnames{ii},'FontSize',65, 'HorizontalAlignment','center',...
                  'VerticalAlignment','middle','Rotation',0,'Color','black','FontName','Brizel') 
                  
  
                          
              %FIGURA
-%               title = sprintf('./Jugger%d.png',ii-1);
-%               [C,map,alpha]  = imread(title);
-%               zoom = 4;
-%               D = 14;
-%               cx = 51;
-%               cy = 45;
-%               image('XData',[cx-D/2*zoom cx+D/2*zoom],'YData',[cy-D/2*zoom cy+D/2*zoom],'CData',C,'AlphaData',alpha);
+              title = sprintf('./Dinosaurs.png');
+              [C,map,alpha]  = imread(title);
+              stepx = 230;
+              stepy = 192;
+              Lx = 180;
+              Ly = 130;
+              
+              xc = (mod(ii-1,4))*stepx + 15; 
+              yc = floor((ii-1)/4)*stepy +10; 
+              C2 = imcrop(C,[xc yc Lx Ly]);
+              alpha2 = imcrop(alpha,[xc yc Lx Ly]);
+              zoom = 2;
+              zoomy = zoom*Lx/Ly; 
+              D = 14;
+              cx = 30;
+              cy = 25;
+              image('XData',[cx-D/2*zoomy cx+D/2*zoomy],'YData',[cy-D/2*zoom cy+D/2*zoom],'CData',C2,'AlphaData',alpha2);
              
                    icons = { 'HuntingIcons_75_t.png';
-                       'HuntingIcons_119_t.png';
-                       'PrehistoricIcon_67_t.png';
-                       'PrehistoricIcon_86_t.png';
-                       'HuntingIcons_42_t.png'};
+                           'HuntingIcons_119_t.png';
+                           'PrehistoricIcon_67_t.png';
+                           'PrehistoricIcon_86_t.png';
+                           'HuntingIcons_42_t.png'};
                    
               %LEVEL1
               for lev = 1:3
@@ -75,22 +86,25 @@ for ii = 1:length(ID)
                             
                             title = icons{res};
                             [C,map,alpha]  = imread(title);
-                            zoom = 0.7;
+                            zoom = 0.8;
                             D = 14;
-                            cx = 7 + (pos-1)*21;
-                            cy = 79 - (lev - 1)*18;
+                            cx = 7+7 + (pos-1)*20;
+                            cy = 81 - (lev - 1)*16;
                             image('XData',[cx-D/2*zoom cx+D/2*zoom],'YData',[cy-D/2*zoom cy+D/2*zoom],'CData',C,'AlphaData',alpha);
 
-                            cx = 7 + (pos-1)*21;
-                            cy = 70 - (lev - 1)*18
-                            text(cx+9,cy+10,num2str(Dresources(ii,res+(lev-1)*5)),'FontSize',120, 'HorizontalAlignment','center',...
-                             'VerticalAlignment','middle','Rotation',0,'Color','black','FontName','Brizel') 
+                            cx = 7+7 + (pos-1)*20;
+                            cy = 72 - (lev - 1)*16
+                            text(cx-9,cy+7,strcat(num2str(Dresources(ii,res+(lev-1)*5)),'x'),'FontSize',50, 'HorizontalAlignment','center',...
+                             'VerticalAlignment','middle','Rotation',0,'Color','black','FontName','Arial') 
                          
                             pos = pos +1;
                         end
                   end
-                  rectangle('Position',[0,88-lev*18,63,1],'FaceColor',[0 0 0],'LineStyle','none','Curvature',[0 0])
-         
+                  rectangle('Position',[0,88-lev*16,63,1],'FaceColor',[0 0 0],'LineStyle','none','Curvature',[0 0])
+                 cx = 60;
+                 cy = 72 - (lev - 1)*16
+                 text(cx,cy+13,Daction{ii,lev},'FontSize',50, 'HorizontalAlignment','right',...
+                      'VerticalAlignment','middle','Rotation',0,'Color','black','FontName','Brizel')    
               end      
    
                 
