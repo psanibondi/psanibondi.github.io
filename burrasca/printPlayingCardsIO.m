@@ -4,7 +4,7 @@ clear
 
 fileID = fopen("burrasca_CSVfile.csv",'w');
 
-N = 60;
+N = 69;
 title = "burrasca";
 fprintf(fileID,"master\n");
 
